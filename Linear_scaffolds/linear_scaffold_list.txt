@@ -1,0 +1,75 @@
+ 1 | Decane                                | CCCCCCCCCC           | 
+ 2 | 2-Methylnonane                        | CC(C)CCCCCCC         | 
+ 3 | 3-Methylnonane                        | CC(CC)CCCCCC         | 
+ 4 | 4-Methylnonane                        | CC(CCC)CCCCC         | 
+ 5 | 5-Methylnonane                        | CC(CCCC)CCCC         | 
+ 6 | 2,2-Dimethyloctane                    | CC(C)(CCCCCC)C       | 
+ 7 | 2,3-Dimethyloctane                    | CC(C)C(CCCCC)C       | 
+ 8 | 2,4-Dimethyloctane                    | CC(C)CC(CCCC)C       | 
+ 9 | 2,5-Dimethyloctane                    | CC(C)CCC(CCC)C       | 
+10 | 2,6-Dimethyloctane                    | CC(C)CCCC(CC)C       | 
+11 | 2,7-Dimethyloctane                    | CC(C)CCCCC(C)C       | 
+12 | 3,3-Dimethyloctane                    | CC(CC)(CCCCC)C       | 
+13 | 3,4-Dimethyloctane                    | CC(CC)C(CCCC)C       | 
+14 | 3,5-Dimethyloctane                    | CC(CC)CC(CCC)C       | 
+15 | 3,6-Dimethyloctane                    | CC(CC)CCC(CC)C       | 
+16 | 4,4-Dimethyloctane                    | CC(CCC)(CCCC)C       | 
+17 | 4,5-Dimethyloctane                    | CC(CCC)C(CCC)C       | 
+18 | 3-Ethyloctane                         | C(C)C(CC)CCCCC       | 
+19 | 4-Ethyloctane                         | C(C)C(CCC)CCCC       | 
+20 | 2,2,3-Trimethylheptane                | CC(C)(C(CCCC)C)C     | 
+21 | 2,2,4-Trimethylheptane                | CC(C)(CC(CCC)C)C     | 
+22 | 2,2,5-Trimethylheptane                | CC(C)(CCC(CC)C)C     | 
+23 | 2,2,6-Trimethylheptane                | CC(C)(CCCC(C)C)C     | 
+24 | 2,3,3-Trimethylheptane                | CC(C)C(CCCC)(C)C     | 
+25 | 2,3,4-Trimethylheptane                | CC(C)C(C(CCC)C)C     | 
+26 | 2,3,5-Trimethylheptane                | CC(C)C(CC(CC)C)C     | 
+27 | 2,3,6-Trimethylheptane                | CC(C)C(CCC(C)C)C     | 
+28 | 2,4,4-Trimethylheptane                | CC(C)CC(CCC)(C)C     | 
+29 | 2,4,5-Trimethylheptane                | CC(C)CC(C(CC)C)C     | 
+30 | 2,4,6-Trimethylheptane                | CC(C)CC(CC(C)C)C     | 
+31 | 2,5,5-Trimethylheptane                | CC(C)CCC(CC)(C)C     | 
+32 | 3,3,4-Trimethylheptane                | CC(CC)(C(CCC)C)C     | 
+33 | 3,3,5-Trimethylheptane                | CC(CC)(CC(CC)C)C     | 
+34 | 3,4,4-Trimethylheptane                | CC(CC)C(CCC)(C)C     | 
+35 | 3,4,5-Trimethylheptane                | CC(CC)C(C(CC)C)C     | 
+36 | 3-Ethyl-2-methylheptane               | C(C)C(C(C)C)CCCC     | 
+37 | 3-Ethyl-3-methylheptane               | C(C)C(CC)(CCCC)C     | 
+38 | 3-Ethyl-4-methylheptane               | C(C)C(CC)C(CCC)C     | 
+39 | 3-Ethyl-5-methylheptane               | C(C)C(CC)CC(CC)C     | 
+40 | 4-Ethyl-2-methylheptane               | C(C)C(CC(C)C)CCC     | 
+41 | 4-Ethyl-3-methylheptane               | C(C)C(C(CC)C)CCC     | 
+42 | 4-Ethyl-4-methylheptane               | C(C)C(CCC)(CCC)C     | 
+43 | 5-Ethyl-2-methylheptane               | C(C)C(CCC(C)C)CC     | 
+44 | 4-Propylheptane                       | C(CC)C(CCC)CCC       | 
+45 | 4-(1-Methylethyl)heptane              | CC(C)C(CCC)CCC       | 
+46 | 2,2,3,3-Tetramethylhexane             | CC(C)(C(CCC)(C)C)C   | 
+47 | 2,2,3,4-Tetramethylhexane             | CC(C)(C(C(CC)C)C)C   | 
+48 | 2,2,3,5-Tetramethylhexane             | CC(C)(C(CC(C)C)C)C   | 
+49 | 2,2,4,4-Tetramethylhexane             | CC(C)(CC(CC)(C)C)C   | 
+50 | 2,2,4,5-Tetramethylhexane             | CC(C)(CC(C(C)C)C)C   | 
+51 | 2,2,5,5-Tetramethylhexane             | CC(C)(CCC(C)(C)C)C   | 
+52 | 2,3,3,4-Tetramethylhexane             | CC(C)C(C(CC)C)(C)C   | 
+53 | 2,3,3,5-Tetramethylhexane             | CC(C)C(CC(C)C)(C)C   | 
+54 | 2,3,4,4-Tetramethylhexane             | CC(C)C(C(CC)(C)C)C   | 
+55 | 2,3,4,5-Tetramethylhexane             | CC(C)C(C(C(C)C)C)C   | 
+56 | 3,3,4,4-Tetramethylhexane             | CC(CC)(C(CC)(C)C)C   | 
+57 | 3-Ethyl-2,2-dimethylhexane            | C(C)C(C(C)(C)C)CCC   | 
+58 | 3-Ethyl-2,3-dimethylhexane            | C(C)C(C(C)C)(CCC)C   | 
+59 | 3-Ethyl-2,4-dimethylhexane            | C(C)C(C(C)C)C(CC)C   | 
+60 | 3-Ethyl-2,5-dimethylhexane            | C(C)C(C(C)C)CC(C)C   | 
+61 | 3-Ethyl-3,4-dimethylhexane            | C(C)C(CC)(C(CC)C)C   | 
+62 | 4-Ethyl-2,2-dimethylhexane            | C(C)C(CC(C)(C)C)CC   | 
+63 | 4-Ethyl-2,3-dimethylhexane            | C(C)C(C(C(C)C)C)CC   | 
+64 | 4-Ethyl-2,4-dimethylhexane            | C(C)C(CC(C)C)(CC)C   | 
+65 | 4-Ethyl-3,3-dimethylhexane            | C(C)C(C(CC)(C)C)CC   | 
+66 | 3,3-Diethylhexane                     | C(C)C(CC)(CCC)CC     | 
+67 | 3,4-Diethylhexane                     | C(C)C(CC)C(CC)CC     | 
+68 | 2-Methyl-3-(1-methylethyl)hexane      | CC(C)C(CCC)C(C)C     | 
+69 | 2,2,3,3,4-Pentamethylpentane          | CC(C)(C(C(C)C)(C)C)C | 
+70 | 2,2,3,4,4-Pentamethylpentane          | CC(C)(C(C(C)(C)C)C)C | 
+71 | 3-Ethyl-2,2,3-trimethylpentane        | C(C)C(C(C)(C)C)(CC)C | 
+72 | 3-Ethyl-2,2,4-trimethylpentane        | C(C)C(C(C)(C)C)C(C)C | 
+73 | 3-Ethyl-2,3,4-trimethylpentane        | C(C)C(C(C)C)(C(C)C)C | 
+74 | 3,3-Diethyl-2-methylpentane           | C(C)C(C(C)C)(CC)CC   | 
+75 | 2,4-Dimethyl-3-(1-methylethyl)pentane | CC(C)C(C(C)C)C(C)C   | 
