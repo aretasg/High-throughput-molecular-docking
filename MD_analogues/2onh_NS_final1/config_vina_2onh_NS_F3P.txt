@@ -1,0 +1,24 @@
+receptor = /Users/Aretas/RP1/Docking_analogues/2onh_NS_final1/2onh_NS.pdbqt
+ligand = /Users/Aretas/RP1/smiles_structures/PDBQT_EM_LIGAND/scaffold_F3P_min.pdbqt
+
+
+out = /Users/Aretas/RP1/Docking_analogues/2onh_NS_final1/2onh_NS_scaffold_F3P_vina.pdbqt
+
+
+center_x = 22
+center_y = 55
+center_z = -55
+
+
+size_x = 18
+size_y = 14
+size_z = 24
+
+
+exhaustiveness = 15
+
+
+num_modes = 20
+
+
+seed = 314159

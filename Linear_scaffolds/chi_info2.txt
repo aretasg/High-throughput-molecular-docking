@@ -1,0 +1,75 @@
+Molecule 1: 
+Molecule 2: 
+Molecule 3: Atom 2 Is Chiral C3
+Molecule 4: Atom 2 Is Chiral C3
+Molecule 5: 
+Molecule 6: 
+Molecule 7: Atom 4 Is Chiral C3
+Molecule 8: Atom 5 Is Chiral C3
+Molecule 9: Atom 6 Is Chiral C3
+Molecule 10: Atom 7 Is Chiral C3
+Molecule 11: 
+Molecule 12: 
+Molecule 13: Atom 2 Is Chiral C3; Atom 5 Is Chiral C3
+Molecule 14: Atom 2 Is Chiral C3; Atom 6 Is Chiral C3
+Molecule 15: Atom 2 Is Chiral C3; Atom 7 Is Chiral C3
+Molecule 16: 
+Molecule 17: Atom 2 Is Chiral C3; Atom 6 Is Chiral C3
+Molecule 18: 
+Molecule 19: Atom 3 Is Chiral C3
+Molecule 20: Atom 4 Is Chiral C3
+Molecule 21: Atom 5 Is Chiral C3
+Molecule 22: Atom 6 Is Chiral C3
+Molecule 23: 
+Molecule 24: 
+Molecule 25: Atom 4 Is Chiral C3; Atom 5 Is Chiral C3
+Molecule 26: Atom 4 Is Chiral C3; Atom 6 Is Chiral C3
+Molecule 27: Atom 4 Is Chiral C3
+Molecule 28: 
+Molecule 29: Atom 5 Is Chiral C3; Atom 6 Is Chiral C3
+Molecule 30: 
+Molecule 31: 
+Molecule 32: Atom 5 Is Chiral C3
+Molecule 33: Atom 6 Is Chiral C3
+Molecule 34: Atom 2 Is Chiral C3
+Molecule 35: Atom 2 Is Chiral C3; Atom 5 Is Chiral C3; Atom 6 Is Chiral C3
+Molecule 36: Atom 3 Is Chiral C3
+Molecule 37: 
+Molecule 38: Atom 6 Is Chiral C3
+Molecule 39: Atom 7 Is Chiral C3
+Molecule 40: Atom 3 Is Chiral C3
+Molecule 41: Atom 3 Is Chiral C3; Atom 4 Is Chiral C3
+Molecule 42: 
+Molecule 43: 
+Molecule 44: 
+Molecule 45: 
+Molecule 46: 
+Molecule 47: Atom 4 Is Chiral C3; Atom 5 Is Chiral C3
+Molecule 48: Atom 4 Is Chiral C3
+Molecule 49: 
+Molecule 50: Atom 5 Is Chiral C3
+Molecule 51: 
+Molecule 52: Atom 5 Is Chiral C3
+Molecule 53: 
+Molecule 54: Atom 4 Is Chiral C3
+Molecule 55: Atom 4 Is Chiral C3; Atom 5 Is Chiral C3
+Molecule 56: 
+Molecule 57: Atom 3 Is Chiral C3
+Molecule 58: Atom 3 Is Chiral C3
+Molecule 59: Atom 3 Is Chiral C3; Atom 7 Is Chiral C3
+Molecule 60: Atom 3 Is Chiral C3
+Molecule 61: Atom 6 Is Chiral C3
+Molecule 62: 
+Molecule 63: Atom 4 Is Chiral C3
+Molecule 64: 
+Molecule 65: 
+Molecule 66: 
+Molecule 67: 
+Molecule 68: 
+Molecule 69: 
+Molecule 70: 
+Molecule 71: 
+Molecule 72: Atom 3 Is Chiral C3
+Molecule 73: 
+Molecule 74: 
+Molecule 75: 

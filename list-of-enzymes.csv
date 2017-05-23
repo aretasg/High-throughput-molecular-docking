@@ -1,0 +1,17 @@
+Enzyme_name,PDB_ID,Species,Substrate,Product,Ligand_crystal,Conformation,Resolution,Chain
+(4S)-limonene synthase,2ong,Mentha spicata ,GPP,(-)-limonene,FGPP (substrate analog) and Mn,C,2.7,A/B
+(4S)-limonene synthase,2onh,Mentha spicata ,GPP,(-)-limonene,FLPP (intermediate analog) and Mn,C,2.7,A/B
+"1,8-cineole synthase ",2j5c,Salvia fruticosa ,GPP,"1,8-cineole ",N/A,C,1.95,A/B
+gamma-terpinene synthase ,5c05,Thymus vulgaris ,GPP,gamma-terpinene,N/A,O,1.65,A/B
+(+)-bornyl diphosphate synthase,1n1b,Salvia officialis,GPP,(+)-bornyl diphosphate,Mg,C,2,A/B
+(+)-bornyl diphosphate synthase,1n1z,Salvia officialis,GPP,(+)-bornyl diphosphate,Mg and pyrophosphate,C,2.3,A/B
+(+)-bornyl diphosphate synthase,1n20,Salvia officialis,GPP,(+)-bornyl diphosphate,"3-AZA-2,3-DIHYDROGERANYL DIPHOSPHATE (substrate/LPP analogue)",C,2.3,A/B
+(+)-bornyl diphosphate synthase,1n21,Salvia officialis,GPP,(+)-bornyl diphosphate,"3-AZA-2,3-DIHYDROGERANYL DIPHOSPHATE",C,3.1,A
+(+)-bornyl diphosphate synthase,1n22,Salvia officialis,GPP,(+)-bornyl diphosphate,"(4R)-7-AZA-7,8-DIHYDROLIMONENE ((4R)-alpha-terpinyl cation analogue) and PPi",C,2.4,A/B
+(+)-bornyl diphosphate synthase,1n23,Salvia officialis,GPP,(+)-bornyl diphosphate,"(1R,4S)-2-AZABORNANE (2-bornyl cation analogue) and PPi",C,2.4,A/B
+(+)-bornyl diphosphate synthase,1n24,Salvia officialis,GPP,(+)-bornyl diphosphate,MG AND PRODUCT,C,2.3,A/B
+(4R)-limonene synthase,5uv0,Citrus sinensis,GPP,(+)-limonene,N/A,O,2.3,A
+(4R)-limonene synthase,5uv1,Citrus sinensis,GPP,(+)-limonene,FGPP,O,2.4,A
+(4R)-limonene synthase,5uv2,Citrus sinensis,GPP,(+)-limonene,FNPP,O,2.2,A
+bacterial linalool synthase ,LINS,N/A,GPP,linalool,N/A,C,2.29,A/B
+bacterial cineole synthase ,BCINS,N/A,GPP,"1,8-cineole",FGPP/FNPP (FGD),C,1.98,A/B
