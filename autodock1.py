@@ -30,7 +30,7 @@ if m_obj:
 if home_dir.endswith("/"):
     home_dir.strip("/")
 
-command1 = home_dir + "/vina --config {2} > \
+command1 = home_dir + " --config {2} > \
     {0}_vina_scaffold_{1}_out.txt".format(protein_name,scaffold_number,file_name)
 
 os.system(command1)
