@@ -6,68 +6,73 @@ Created on Wed Mar 29 01:48:17 2017
 @author: Aretas
 """
 
-import re, argparse, os
+# Product library MD results to xslx
+import re
+import argparse
+import os
 import xlsxwriter
 import collections
 import csv
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-f1', '--file1',
-    help='choose the list of MD ligands', required=True)
 parser.add_argument('-f2', '--file2',
+    help='choose the list of MD ligands', required=True)
+parser.add_argument('-f1', '--file1',
     help='choose the list of MD enzymes (should be a .csv file)', required=True)
 parser.add_argument('-lo', '--location',
-    help='choose aff_dis.txt folder containing folder (should be in RP1)', required=True)
+    help='choose the MD results folder', required=True)
 
 args = parser.parse_args()
-input1 = open(args.file1).readlines()
-input3 = open(args.file2).readlines()
 location = args.location
+
+workbook = xlsxwriter.Workbook("MD_NatPro.xlsx")#####!!!!!!!
 
 input1_dict = {}
 input1_dict_t = {}
 number_of_products = 1
 
-file_path = "/Users/Aretas/RP1/" + location + "/aff_dis/"
+results_loc = os.path.realpath(args.location)
+file_path = results_loc + "/aff_dis/"
 #print(file_path)
 
-with open(args.file2) as f:
+with open(args.file1) as f:
     csv_dict = [{k: str(v) for k, v in row.items()}
          for row in csv.DictReader(f, skipinitialspace=True)]
 
+with open(args.file2) as input1:
+    for line in input1:
+        f = line.split()
+        number = f[0]
+        name = f[2]
+        topology = f[4]
+        number_of_products += 1
+        input1_dict[int(number)] = name
+        input1_dict_t[int(number)] = topology
 
-
-for line in input1:
-    f = line.split()
-    number = f[0]
-    name = f[2]
-    topology = f[4]
-    number_of_products += 1
-    input1_dict[int(number)] = name
-    input1_dict_t[int(number)] = topology
-
-
-workbook = xlsxwriter.Workbook("MD_NatPro.xlsx")#####!!!!!!!       
-mean_line = ""    
+mean_line = ""
 
 worksheet1 = workbook.add_worksheet('mean')
 
 for txt_aff in os.listdir(file_path):
-    
-    if txt_aff.endswith("aff_dis.txt"): 
-        completeName = os.path.join(file_path,"{0}".format(txt_aff)) 
-    
+
+    if txt_aff.endswith("aff_dis.txt"):
+        completeName = os.path.join(file_path,"{0}".format(txt_aff))
+
         input2_open = open(completeName)
         input2 = input2_open.readlines()
         input2_dict = {}
-    
+
         for line in input2:
             f = line.split()
             input2_dict[int(f[0])] = 0 - float(f[1])
-        
-        m_obj = re.search(r'(.*)_NS_(.*)_scaffold_aff_dis.txt', txt_aff)  ###!!!!
+
+        m_obj = re.search(r'(.*)_NS_pho_(.*)_scaffold_aff_dis.txt', txt_aff)
+        m_obj1 = re.search(r'(.*)_NS_(.*)_scaffold_aff_dis.txt', txt_aff)
         if m_obj:
             enzyme_name = m_obj.groups()[0]
+            chain = m_obj.groups()[1]
+        if m_obj1:
+            enzyme_name = m_obj1.groups()[0]
             chain = m_obj.groups()[1]
 
         sheet_name = enzyme_name.upper() + "_" + chain
@@ -99,7 +104,7 @@ for txt_aff in os.listdir(file_path):
             worksheet.write(row, col + 2, input2_dict[k])
             worksheet.write_string(row, col + 1, input1_dict[k])
             row += 1
-        
+
         #worksheet.write('F2', enzyme_name.upper())
         worksheet.write('F2', 'Top score')
         worksheet.write('F3', 'min')
@@ -108,7 +113,7 @@ for txt_aff in os.listdir(file_path):
         worksheet.write('G3', '=MIN(C2:C{0})'.format(number_of_products))
         worksheet.write('G4', '=MAX(C2:C{0})'.format(number_of_products))
         worksheet.write('G5', '=STDEV(C2:C{0})'.format(number_of_products))
-        
+
         for dictionary in csv_dict:
             if dictionary["PDB_ID"] == enzyme_name or dictionary["PDB_ID"] == enzyme_name.upper():
                 worksheet.write('F7', 'Enzyme name')
@@ -120,7 +125,7 @@ for txt_aff in os.listdir(file_path):
                 worksheet.write('L7', 'Resolution (A)')
                 worksheet.set_column('L:L', 12)
                 worksheet.write('M7', 'Species')
-                
+
                 worksheet.write('F8', dictionary["Enzyme_name"])
                 worksheet.set_column('F:F', 25)
                 worksheet.write('G8', dictionary['PDB_ID'])
@@ -135,7 +140,6 @@ for txt_aff in os.listdir(file_path):
                 worksheet.set_column('M:M', 18)
 
 ### MEAN SHEET
-
 
 bold = workbook.add_format ({'bold' : True})
 italic = workbook.add_format ({'italic' : True})
@@ -160,7 +164,7 @@ for k, v in od.items():
     worksheet1.write_string(row, col + 1, input1_dict[k])
     row += 1
 
-mean_line = mean_line[:-1]    
+mean_line = mean_line[:-1]
 a_mean_line = "=AVERAGE(" + mean_line + ")"
 std_mean_line = "=STDEV(" + mean_line + ")"
 #print (a_mean_line)
@@ -189,6 +193,4 @@ worksheet1.insert_chart('G8', chart)
 chart1.add_series({'values': '={0}!$E$2:$E${1}'.format("mean", number_of_products)})
 worksheet1.insert_chart('G23', chart1)
 
-   
 workbook.close()
-    
