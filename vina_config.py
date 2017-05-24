@@ -21,7 +21,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-f', '--file',
-    help='choose the PDB protein file', required=True)
+    help='choose the PDBQT protein file', required=True)
 parser.add_argument('-xc', '--x_center',
     help='choose x center coordinate', default=45)
 parser.add_argument('-yc', '--y_center',

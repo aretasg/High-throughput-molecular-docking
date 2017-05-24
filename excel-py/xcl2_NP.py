@@ -5,7 +5,7 @@ Created on Wed Mar 29 01:48:17 2017
 
 @author: Aretas
 """
-#Export Linear MD results to xlsx
+#tranfer MD_NP data to excel sheets
 import re
 import argparse
 import os
@@ -14,50 +14,52 @@ import collections
 import csv
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-f', '--file',
-    help='choose the list of MD enzymes (should be a .csv file)', required=True)
+parser.add_argument('-f1', '--file1',
+    help='choose the list of MD ligands', required=True)
 parser.add_argument('-f2', '--file2',
-    help='choose the TXT file with the list of ligands', required=True)
+    help='choose the list of MD enzymes (should be a .csv file)', required=True)
 parser.add_argument('-lo', '--location',
-    help='choose MD results containing folder', required=True)
+    help='choose the MD results folder', required=True)
 
 args = parser.parse_args()
+input1 = open(args.file1).readlines()
 location = args.location
 
-workbook = xlsxwriter.Workbook("MD_Linear_pho.xlsx")#####!!!!!!!
-
-ligand_dict = {} #skeleton number in the lib : type of the skeleton
-ligand_counter = 0
-with open(args.file2) as f:
-    for line in f:
-        k = line.split()
-        ligand_dict[int(k[0])] = k[2]
-        ligand_counter += 1
+workbook = xlsxwriter.Workbook("MD_NatPro.xlsx")
 
 input1_dict = {}
-number_of_products = ligand_counter + 1
+input1_dict_t = {}
+number_of_products = 1
 
 results_loc = os.path.realpath(args.location)
 file_path = results_loc + "/aff_dis/"
 
-with open(args.file) as f:
+with open(args.file2) as f:
     csv_dict = [{k: str(v) for k, v in row.items()}
          for row in csv.DictReader(f, skipinitialspace=True)]
+
+for line in input1:
+    f = line.split()
+    number = f[0]
+    name = f[2]
+    topology = f[4]
+    number_of_products += 1
+    input1_dict[int(number)] = name
+    input1_dict_t[int(number)] = topology
 
 mean_line = ""
 
 worksheet1 = workbook.add_worksheet('mean')
-input2_dict = {}
 
 for txt_aff in os.listdir(file_path):
 
     if txt_aff.endswith("aff_dis.txt"):
         completeName = os.path.join(file_path,"{0}".format(txt_aff))
-
+        input2_dict = {}
         with open(completeName) as input2:
             for line in input2:
                 f = line.split()
-                input2_dict[f[0]] = 0 - float(f[1])
+                input2_dict[int(f[0])] = 0 - float(f[1])
 
         m_obj = re.search(r'(.*)_NS_pho_(.*)_scaffold_aff_dis.txt', txt_aff)
         m_obj1 = re.search(r'(.*)_NS_(.*)_scaffold_aff_dis.txt', txt_aff)
@@ -77,29 +79,25 @@ for txt_aff in os.listdir(file_path):
         bold = workbook.add_format ({'bold' : True})
         italic = workbook.add_format ({'italic' : True})
         chart = workbook.add_chart({'type': 'column'})
-        chart1 = workbook.add_chart({'type': 'column'})
-
 
         chart.add_series({'values': '={0}!$C$2:$C${1}'.format(sheet_name, number_of_products)})
-        chart.set_y_axis({'min': 4.0})
+        chart.set_y_axis({'min': 4.5})
         worksheet.insert_chart('F12', chart)
 
+        worksheet.write('A1', 'Number', bold)
+        worksheet.write('B1', 'Name', bold)
+        worksheet.write('C1', 'Top score', bold)
 
-        worksheet.write('A1', 'Scaffold Number', bold)
-        worksheet.set_column('A:A', 14)
-
-        worksheet.write('B1', 'Library number', bold)
-        worksheet.write('C1', 'Top Score', bold)
-
+        worksheet.set_column('B:B', 18)
 
         row = 1
         col = 0
 
-        od = collections.OrderedDict(sorted(ligand_dict.items()))
+        od = collections.OrderedDict(sorted(input2_dict.items()))
         for k, v in od.items():
             worksheet.write(row, col, k)
-            worksheet.write(row, col + 1, v)
-            worksheet.write(row, col + 2, input2_dict[v])
+            worksheet.write(row, col + 2, input2_dict[k])
+            worksheet.write_string(row, col + 1, input1_dict[k])
             row += 1
 
         #worksheet.write('F2', enzyme_name.upper())
@@ -111,9 +109,8 @@ for txt_aff in os.listdir(file_path):
         worksheet.write('G4', '=MAX(C2:C{0})'.format(number_of_products))
         worksheet.write('G5', '=STDEV(C2:C{0})'.format(number_of_products))
 
-
         for dictionary in csv_dict:
-            if dictionary["PDB_ID"] == enzyme_name or dictionary["PDB_ID"] == enzyme_name.upper() :
+            if dictionary["PDB_ID"] == enzyme_name:
                 worksheet.write('F7', 'Enzyme name')
                 worksheet.write('G7', 'PDB ID')
                 worksheet.write('H7', 'Native product', bold)
@@ -143,55 +140,51 @@ bold = workbook.add_format ({'bold' : True})
 italic = workbook.add_format ({'italic' : True})
 chart = workbook.add_chart({'type': 'column'})
 chart1 = workbook.add_chart({'type': 'column'})
-chart2 = workbook.add_chart({'type': 'column'})
-chart3 = workbook.add_chart({'type': 'column'})
 
-worksheet1.write('A1', 'Scaffold Number', bold)
-worksheet1.set_column('A:A', 14)
-worksheet1.write('B1', 'Library number', bold)
-worksheet1.write('C1', 'Topology', bold)
+worksheet1.write('A1', 'Number', bold)
+worksheet1.write('B1', 'Name', bold)
+worksheet1.write('C1', 'Toplogy', bold)
 worksheet1.write('D1', 'mean', bold)
 worksheet1.write('E1', 'sd', bold)
+
+worksheet1.set_column('B:B', 18)
 
 row = 1
 col = 0
 
-od = collections.OrderedDict(sorted(ligand_dict.items()))
+od = collections.OrderedDict(sorted(input1_dict.items()))
 for k, v in od.items():
     worksheet1.write(row, col, k)
-    worksheet1.write(row, col + 1, v)
-    worksheet1.write(row, col + 2, "linear")
+    worksheet1.write(row, col + 2, input1_dict_t[k])  ####!!!!!
+    worksheet1.write_string(row, col + 1, input1_dict[k])
     row += 1
 
 mean_line = mean_line[:-1]
 a_mean_line = "=AVERAGE(" + mean_line + ")"
 std_mean_line = "=STDEV(" + mean_line + ")"
-
 #print (a_mean_line)
 for i in range(2, number_of_products + 1):
     worksheet1.write('D{0}'.format(i), a_mean_line.format(i))
     worksheet1.write('E{0}'.format(i), std_mean_line.format(i))
+    #worksheet.write('D{0}'.format(i), "=AVERAGE('1N1Z_A'!C{0},'1N1Z_B'!C{0},'1N20_A'!C{0},'1N20_B'!C{0},'1N21_A'!C{0},'1N22_A'!C{0},'1N22_B'!C{0},'1N23_A'!C{0},'1N23_B'!C{0},'1N24_A'!C{0},'1N24_B'!C{0},'2ONG_A'!C{0},'2ONG_B'!C{0},'2ONH_A'!C{0},'2ONH_B'!C{0},'5UV1_A'!C{0},'5UV2_A'!C{0},BCINS_A!C{0},BCINS_B!C{0})".format(i))
+    #worksheet.write('E{0}'.format(i), "=STDEV('1N1Z_A'!C{0},'1N1Z_B'!C{0},'1N20_A'!C{0},'1N20_B'!C{0},'1N21_A'!C{0},'1N22_A'!C{0},'1N22_B'!C{0},'1N23_A'!C{0},'1N23_B'!C{0},'1N24_A'!C{0},'1N24_B'!C{0},'2ONG_A'!C{0},'2ONG_B'!C{0},'2ONH_A'!C{0},'2ONH_B'!C{0},'5UV1_A'!C{0},'5UV2_A'!C{0},BCINS_A!C{0},BCINS_B!C{0})".format(i))
 
-
-worksheet1.write('I2', 'mean')
-worksheet1.write('I3', 'min')
-worksheet1.write('I4', 'max')
-worksheet1.write('I5', 'sd')
-worksheet1.write('J3', '=MIN(D2:D{0})'.format(number_of_products))
-worksheet1.write('J4', '=MAX(D2:D{0})'.format(number_of_products))
-worksheet1.write('J5', '=STDEV(D2:D{0})'.format(number_of_products))
+worksheet1.write('G2', 'mean')
+worksheet1.write('G3', 'min')
+worksheet1.write('G4', 'max')
+worksheet1.write('G5', 'sd')
+worksheet1.write('H3', '=MIN(D2:D{0})'.format(number_of_products))
+worksheet1.write('H4', '=MAX(D2:D{0})'.format(number_of_products))
+worksheet1.write('H5', '=STDEV(D2:D{0})'.format(number_of_products))
 
 chart.add_series({
                   'values': '={0}!$D$2:$D${1}'.format("mean", number_of_products),
                   'y_error_bars': {'type': 'standard_error'},
 })
-chart.set_y_axis({'min': 5.0})
+chart.set_y_axis({'min': 4.5})
+worksheet1.insert_chart('G8', chart)
 
-worksheet1.insert_chart('I8', chart)
-
-
-chart1.add_series({'values': '={0}!$C$2:$C${1}'.format("mean", number_of_products)})
-chart1.set_y_axis({'min': 0.15})
-worksheet1.insert_chart('I23', chart1)
+chart1.add_series({'values': '={0}!$E$2:$E${1}'.format("mean", number_of_products)})
+worksheet1.insert_chart('G23', chart1)
 
 workbook.close()
