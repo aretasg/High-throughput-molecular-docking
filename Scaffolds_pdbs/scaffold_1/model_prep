@@ -1,6 +1,0 @@
-source leaprc.gaff
-loadamberprep /Users/Aretas/RP1/Linear_scaffolds/Scaffolds_pdbs/scaffold_1/scaffold_1.prepin
-loadamberparams /Users/Aretas/RP1/Linear_scaffolds/Scaffolds_pdbs/scaffold_1/scaffold_1.frcmod
-model = loadpdb NEWPDB.PDB
-saveamberparm model /Users/Aretas/RP1/Linear_scaffolds/Scaffolds_pdbs/scaffold_1/scaffold_1.prmtop /Users/Aretas/RP1/Linear_scaffolds/Scaffolds_pdbs/scaffold_1/scaffold_1.inpcrd
-quit
