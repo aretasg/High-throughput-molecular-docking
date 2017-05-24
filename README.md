@@ -1,4 +1,4 @@
-# High-throughput-molecular-docking and virtual screening
+# High-throughput-molecular-docking-and-virtual-screening
 
 The repository includes multiple Python scripts for high throughput ligand, receptor/enzyme preparation, molecular docking and virtual screening using AutoDock Vina (Trott and Olson, 2009).
 
