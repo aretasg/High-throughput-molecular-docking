@@ -21,7 +21,7 @@ args = parser.parse_args()
 file_name = str(args.vina_config_file)
 home_dir = args.vina_location
 
-m_obj = re.search(r'config_vina_(.*)_(.*).txt', file_name)
+m_obj = re.search(r'config_vina_(.*)_(.*)_(.*).txt', file_name)
 if m_obj:
     protein_name = m_obj.groups()[0]
     scaffold_number = m_obj.groups()[1]
