@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--vina_config_file',
     help='choose a vina configuration file', required=True)
 parser.add_argument('-vina', '--vina_location',
-    help='choose the vina directory', default="/Users/Aretas/RP1")
+    help='choose the vina directory', required=True)
 
 args = parser.parse_args()
 file_name = str(args.vina_config_file)
