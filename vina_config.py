@@ -6,7 +6,7 @@ Created on Mon Feb 20 03:51:37 2017
 @author: Aretas
 """
 
-#creates a config files(s) for vina; accepts enzyme PDB as input
+#creates a config file(s) for Vina; accepts enzyme PDB as input
 #uses default settings
 #accepts and xyz coordinate and xyz box size as input
 #default search parameters work with all bornyl synthases except for 1n21
@@ -86,9 +86,9 @@ for filename in os.listdir(file_path4):
     if scaffold_number:
         scaffold_number_hit = scaffold_number.groups()[1]
         scaffold_name = scaffold_number.groups()[0]
-
         completeName = os.path.join(file_path,"config_vina_{0}_{2}_{1}.txt"
             .format(protein_name, scaffold_number_hit, chain))
+        
         with open(completeName, "w") as file2:
 
             file2.write("receptor = {0}{1}.pdbqt\n".format(file_path3, protein_name))
