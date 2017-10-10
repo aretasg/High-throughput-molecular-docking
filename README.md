@@ -5,3 +5,5 @@ The repository includes multiple Python scripts for high throughput ligand, rece
 For a full description of the pipeline please see Supplementary_mat.pdf
 
 prepare_ligand4.py; prepare_receptor4.py; bin folder are distributed as part of MGLTools 1.5.6 and all the ownership is credited to their respective authors (Morris et al., 2009).
+
+Dependencies: AmberTools16; Open Babel; MGLTools; AutoDock Vina.
