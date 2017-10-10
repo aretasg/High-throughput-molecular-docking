@@ -113,7 +113,6 @@ command4 = amberhome + '''/bin/sander -O -i {1} -o {2}{0}_min.log \
 os.system(command4)
 
 ###5 conversion to PDB format
-
 complete_path = os.path.join(file_path,"rst2pdb.ptraj")
 
 with open(complete_path, "w") as file3:
